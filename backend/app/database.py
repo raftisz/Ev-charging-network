@@ -1,18 +1,31 @@
 """
 Database connection and session management.
-Uses SQLModel (built on SQLAlchemy + Pydantic) with PostgreSQL.
+Uses SQLModel with PostgreSQL when configured, and SQLite by default for local development.
 """
 
 import os
 from sqlmodel import SQLModel, Session, create_engine
 
-DATABASE_URL = os.getenv(
-    "DATABASE_URL",
-    "postgresql://ev_user:ev_password@localhost:5432/ev_charging_db",
-)
 
-# `pool_pre_ping` avoids stale connections when the DB container restarts.
-engine = create_engine(DATABASE_URL, echo=False, pool_pre_ping=True)
+def get_database_url() -> str:
+    """Return the configured database URL or fall back to SQLite for local development."""
+    database_url = os.getenv("DATABASE_URL")
+    if database_url:
+        return database_url
+    return os.getenv("SQLITE_DATABASE_URL", "sqlite:///./ev_charging.db")
+
+
+DATABASE_URL = get_database_url()
+
+if DATABASE_URL.startswith("sqlite"):
+    engine = create_engine(
+        DATABASE_URL,
+        echo=False,
+        connect_args={"check_same_thread": False},
+    )
+else:
+    # `pool_pre_ping` avoids stale connections when the DB container restarts.
+    engine = create_engine(DATABASE_URL, echo=False, pool_pre_ping=True)
 
 
 def create_db_and_tables() -> None:

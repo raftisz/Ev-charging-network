@@ -9,6 +9,7 @@ Responsibilities:
 
 import random
 from datetime import datetime, timedelta
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -48,6 +49,19 @@ STATION_NAMES = [
     "Thonglor Premium Charge", "Phrom Phong Skyline Hub", "Ladprao Community Charger", "Silom District Point",
     "Asoke Intersection Hub", "Bangna Trad Express", "Onnut Local Charger", "Suvarnabhumi Airport Hub",
 ]
+
+
+def find_frontend_dir() -> Path:
+    """Resolve the frontend directory for both local development and Docker."""
+    current_file = Path(__file__).resolve()
+    for parent in current_file.parents:
+        candidate = parent / "frontend"
+        if candidate.exists():
+            return candidate
+    return current_file.parent.parent / "frontend"
+
+
+FRONTEND_DIR = find_frontend_dir()
 
 
 def seed_mock_data() -> None:
@@ -197,4 +211,4 @@ def health_check():
 
 # Serve the vanilla HTML/CSS/JS frontend. Mounted last so it doesn't
 # shadow the /api routes above.
-app.mount("/", StaticFiles(directory="/app/frontend", html=True), name="frontend")
+app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
