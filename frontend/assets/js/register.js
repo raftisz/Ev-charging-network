@@ -1,5 +1,5 @@
 if (Api.isLoggedIn()) {
-  window.location.href = "/pages/dashboard.html";
+  window.location.href = "dashboard.html";
 }
 
 document.getElementById("register-form").addEventListener("submit", async (e) => {
@@ -29,7 +29,7 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
       confirm_password,
     });
     Api.setSession(data.access_token, data.user_id, data.full_name);
-    window.location.href = "/pages/dashboard.html";
+    window.location.href = "dashboard.html";
   } catch (err) {
     showToast(err.message, true);
     btn.disabled = false;

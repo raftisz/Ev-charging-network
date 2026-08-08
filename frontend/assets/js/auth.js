@@ -5,12 +5,12 @@
  */
 
 const NAV_ITEMS = [
-  { href: "/pages/dashboard.html", label: "Dashboard", key: "dashboard", icon: "grid" },
-  { href: "/pages/stations.html", label: "Find Stations", key: "stations", icon: "pin" },
-  { href: "/pages/reservation.html", label: "Reservations", key: "reservation", icon: "calendar" },
-  { href: "/pages/charging-status.html", label: "Charging Status", key: "charging", icon: "bolt" },
-  { href: "/pages/history.html", label: "History", key: "history", icon: "clock" },
-  { href: "/pages/profile.html", label: "Profile", key: "profile", icon: "user" },
+  { href: "dashboard.html", label: "Dashboard", key: "dashboard", icon: "grid" },
+  { href: "stations.html", label: "Find Stations", key: "stations", icon: "pin" },
+  { href: "reservation.html", label: "Reservations", key: "reservation", icon: "calendar" },
+  { href: "charging-status.html", label: "Charging Status", key: "charging", icon: "bolt" },
+  { href: "history.html", label: "History", key: "history", icon: "clock" },
+  { href: "profile.html", label: "Profile", key: "profile", icon: "user" },
 ];
 
 const ICONS = {

@@ -21,4 +21,5 @@ Thumbs.db
 
 # Database
 *.sqlite3
+*.db
 postgres-data/

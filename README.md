@@ -15,29 +15,38 @@ inspired dark, glassmorphic UI.
 project-name/
 ├── backend/
 │   ├── app/
-│   │   ├── main.py            # App entrypoint, routers, static mount, seeding
-│   │   ├── routers/
-│   │   │   ├── auth.py        # Register / login / JWT dependency
-│   │   │   ├── users.py       # Profile & vehicles
-│   │   │   ├── stations.py    # Station discovery & detail
-│   │   │   ├── bookings.py    # Reservations
-│   │   │   ├── charging.py    # Live charging session
-│   │   │   └── payments.py    # Payments
-│   │   ├── models.py          # SQLModel tables
-│   │   ├── schemas.py         # Pydantic request/response schemas
-│   │   ├── database.py        # Engine & session dependency
-│   │   └── crud.py            # CRUD + auth helpers (hashing, JWT)
+│   │   ├── main.py            # App entrypoint, router registration, static frontend mount
+│   │   ├── database.py        # SQLModel engine and session dependency
+│   │   ├── utils/
+│   │   │   └── seeder.py      # Demo data seeding and frontend path resolution
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   └── entities.py     # SQLModel table definitions
+│   │   ├── schemas/
+│   │   │   ├── __init__.py
+│   │   │   └── schemas.py      # Pydantic request/response schemas
+│   │   ├── services/
+│   │   │   ├── __init__.py
+│   │   │   └── crud.py         # Business logic and auth helpers
+│   │   └── routers/
+│   │       ├── auth.py
+│   │       ├── users.py
+│   │       ├── stations.py
+│   │       ├── bookings.py
+│   │       ├── charging.py
+│   │       └── payments.py
 │   ├── requirements.txt
 │   └── Dockerfile
 ├── frontend/
 │   ├── index.html
-│   ├── pages/                 # login, register, dashboard, stations, ...
-│   ├── css/style.css
-│   └── js/                    # api.js, auth.js, and one file per page
+│   ├── assets/
+│   │   ├── css/style.css
+│   │   └── js/                # reusable frontend helpers + page-specific scripts
+│   └── pages/                 # login, register, dashboard, stations, ...
 ├── docs/
-│   ├── user-journey.md
+│   ├── api-spec.md
 │   ├── er-diagram.png
-│   └── api-spec.md
+│   └── user-journey.md
 ├── docker-compose.yml
 ├── .env.example
 ├── .gitignore

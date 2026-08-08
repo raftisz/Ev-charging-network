@@ -95,7 +95,7 @@ document.getElementById("reservation-form").addEventListener("submit", async (e)
       reservation_time: document.getElementById("time").value,
     });
     showToast("Reservation confirmed!");
-    setTimeout(() => (window.location.href = "/pages/charging-status.html"), 900);
+    setTimeout(() => (window.location.href = "charging-status.html"), 900);
   } catch (err) {
     showToast(err.message, true);
     btn.disabled = false;

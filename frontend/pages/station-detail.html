@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <title>Station Detail — Volt Grid</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
 
@@ -15,7 +15,7 @@
     <div class="topbar">
       <div>
         <button class="menu-toggle" id="menu-toggle">☰</button>
-        <a class="link-muted" href="/pages/stations.html">← Back to stations</a>
+        <a class="link-muted" href="stations.html">← Back to stations</a>
       </div>
     </div>
 
@@ -25,8 +25,9 @@
   </main>
 </div>
 
-<script src="/js/api.js"></script>
-<script src="/js/auth.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/auth.js"></script>
 <script>
   requireAuth();
   renderSidebar("stations");
@@ -105,7 +106,7 @@
             </div>
           </div>
 
-          <a class="btn btn-primary" style="margin-top:18px;" href="/pages/reservation.html?station_id=${station.id}">Reserve This Station</a>
+          <a class="btn btn-primary" style="margin-top:18px;" href="reservation.html?station_id=${station.id}">Reserve This Station</a>
         </div>
       </div>`;
   }
@@ -113,7 +114,7 @@
   (async function init() {
     const stationId = getStationIdFromUrl();
     if (!stationId) {
-      window.location.href = "/pages/stations.html";
+      window.location.href = "stations.html";
       return;
     }
     try {

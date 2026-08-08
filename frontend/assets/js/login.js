@@ -1,6 +1,6 @@
 // If already logged in, skip straight to the dashboard.
 if (Api.isLoggedIn()) {
-  window.location.href = "/pages/dashboard.html";
+  window.location.href = "dashboard.html";
 }
 
 document.getElementById("login-form").addEventListener("submit", async (e) => {
@@ -17,7 +17,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
   try {
     const data = await Api.post("/login", { email, password, remember_me: rememberMe });
     Api.setSession(data.access_token, data.user_id, data.full_name);
-    window.location.href = "/pages/dashboard.html";
+    window.location.href = "dashboard.html";
   } catch (err) {
     showToast(err.message, true);
     btn.disabled = false;

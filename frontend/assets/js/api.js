@@ -3,7 +3,7 @@
  * Wraps fetch() with the base URL, JSON handling, and JWT auth header.
  */
 
-const API_BASE = "/api";
+const API_BASE = window.EV_API_BASE_URL || "/api";
 
 const Api = {
   getToken() {
@@ -45,7 +45,7 @@ const Api = {
 
     if (response.status === 401) {
       this.clearSession();
-      window.location.href = "/pages/login.html";
+      window.location.href = "login.html";
       return Promise.reject(new Error("Session expired"));
     }
 
@@ -78,7 +78,7 @@ const Api = {
 /** Redirect to login if there is no active session. Call at top of protected pages. */
 function requireAuth() {
   if (!Api.isLoggedIn()) {
-    window.location.href = "/pages/login.html";
+    window.location.href = "login.html";
   }
 }
 
@@ -99,5 +99,5 @@ function showToast(message, isError = false) {
 
 function logout() {
   Api.clearSession();
-  window.location.href = "/pages/login.html";
+  window.location.href = "login.html";
 }

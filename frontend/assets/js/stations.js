@@ -15,7 +15,7 @@ function renderStations(stations) {
   grid.innerHTML = stations
     .map(
       (s, i) => `
-      <a class="station-card" href="/pages/station-detail.html?id=${s.id}">
+      <a class="station-card" href="station-detail.html?id=${s.id}">
         <img src="${s.image_url}" alt="${s.name}" loading="lazy" />
         <div class="body">
           <div class="name-row">

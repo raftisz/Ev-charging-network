@@ -29,7 +29,7 @@ document.getElementById("confirm-payment-btn").addEventListener("click", async (
   try {
     await Api.post("/payments", { amount: sessionAmount, method: selectedMethod });
     showToast("Payment successful!");
-    setTimeout(() => (window.location.href = "/pages/history.html"), 900);
+    setTimeout(() => (window.location.href = "history.html"), 900);
   } catch (err) {
     showToast(err.message, true);
     btn.disabled = false;

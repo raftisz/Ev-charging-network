@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <title>Dashboard — Volt Grid</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
 
@@ -18,7 +18,7 @@
         <div class="page-title" id="greeting">Welcome back</div>
         <div class="page-sub">Here's what's happening with your EV today.</div>
       </div>
-      <a class="btn btn-primary" style="width:auto;" href="/pages/stations.html">+ New Reservation</a>
+      <a class="btn btn-primary" style="width:auto;" href="stations.html">+ New Reservation</a>
     </div>
 
     <div class="grid grid-3" style="margin-bottom:18px;">
@@ -58,7 +58,7 @@
             <div class="label" id="battery-status">No active session</div>
           </div>
         </div>
-        <a href="/pages/charging-status.html" class="btn btn-outline btn-block">View Charging Status</a>
+        <a href="charging-status.html" class="btn btn-outline btn-block">View Charging Status</a>
       </div>
 
       <div class="glass-card">
@@ -67,7 +67,7 @@
           <div class="empty-state">
             <div class="icon">📅</div>
             No upcoming reservation yet.
-            <div style="margin-top:14px;"><a class="btn btn-primary" style="width:auto; display:inline-flex;" href="/pages/stations.html">Reserve a Charger</a></div>
+            <div style="margin-top:14px;"><a class="btn btn-primary" style="width:auto; display:inline-flex;" href="stations.html">Reserve a Charger</a></div>
           </div>
         </div>
       </div>
@@ -82,14 +82,15 @@
       <div class="glass-card">
         <h3 style="margin-bottom:6px;">Recent Charging History</h3>
         <div id="recent-history"></div>
-        <a href="/pages/history.html" class="link-muted" style="display:inline-block; margin-top:12px;">View full history →</a>
+        <a href="history.html" class="link-muted" style="display:inline-block; margin-top:12px;">View full history →</a>
       </div>
     </div>
   </main>
 </div>
 
-<script src="/js/api.js"></script>
-<script src="/js/auth.js"></script>
-<script src="/js/dashboard.js"></script>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/dashboard.js"></script>
 </body>
 </html>

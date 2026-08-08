@@ -52,7 +52,7 @@ function renderContent(session) {
           <span class="text-muted">Current Cost</span>
           <span style="font-family:var(--font-display); font-size:22px; color:var(--green);">฿${session.current_cost.toFixed(2)}</span>
         </div>
-        ${session.status !== "charging" ? `<a class="btn btn-primary" style="margin-top:18px;" href="/pages/payment.html">Proceed to Payment</a>` : ""}
+        ${session.status !== "charging" ? `<a class="btn btn-primary" style="margin-top:18px;" href="payment.html">Proceed to Payment</a>` : ""}
       </div>
     </div>`;
 
@@ -83,7 +83,7 @@ async function pollStatus() {
       <div class="empty-state">
         <div class="icon">🔌</div>
         No active charging session.
-        <div style="margin-top:14px;"><a class="btn btn-primary" style="width:auto; display:inline-flex;" href="/pages/stations.html">Reserve a Charger</a></div>
+        <div style="margin-top:14px;"><a class="btn btn-primary" style="width:auto; display:inline-flex;" href="stations.html">Reserve a Charger</a></div>
       </div>`;
     document.getElementById("status-label").textContent = "No active session";
     document.getElementById("live-dot").style.background = "var(--text-2)";

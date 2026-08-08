@@ -52,7 +52,7 @@ async function loadCurrentReservation() {
       <div class="text-muted" style="font-size:13px; margin-bottom:16px;">
         Estimated cost: <strong style="color:var(--text-0);">${formatCurrency(upcoming.estimated_cost)}</strong>
       </div>
-      <a class="btn btn-primary" href="/pages/charging-status.html">Start Charging</a>
+      <a class="btn btn-primary" href="charging-status.html">Start Charging</a>
     </div>`;
 
   document.getElementById("stat-sessions").textContent = bookings.length;
@@ -75,7 +75,7 @@ async function loadFavorites() {
   container.innerHTML = favoriteStations
     .map(
       (s) => `
-      <a href="/pages/station-detail.html?id=${s.id}" class="glass-panel" style="display:block;">
+      <a href="station-detail.html?id=${s.id}" class="glass-panel" style="display:block;">
         <div style="font-weight:600; font-size:14px; margin-bottom:4px;">${s.name}</div>
         <div class="text-dim" style="font-size:12px;">${s.address}</div>
       </a>`
