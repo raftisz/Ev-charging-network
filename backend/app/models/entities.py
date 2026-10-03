@@ -6,6 +6,7 @@ Each class is both a Pydantic model (validation) and an ORM table (SQLModel).
 from datetime import datetime
 from typing import Optional
 
+from sqlalchemy import Index
 from sqlmodel import SQLModel, Field
 
 
@@ -71,6 +72,9 @@ class Charger(SQLModel, table=True):
 
 class Booking(SQLModel, table=True):
     __tablename__ = "bookings"
+    __table_args__ = (
+        Index("idx_bookings_user_created", "user_id", "created_at"),
+    )
 
     id: Optional[int] = Field(default=None, primary_key=True)
     user_id: int = Field(foreign_key="users.id", index=True)
@@ -86,6 +90,9 @@ class Booking(SQLModel, table=True):
 
 class ChargingSession(SQLModel, table=True):
     __tablename__ = "charging_sessions"
+    __table_args__ = (
+        Index("idx_sessions_user_started", "user_id", "started_at"),
+    )
 
     id: Optional[int] = Field(default=None, primary_key=True)
     booking_id: int = Field(foreign_key="bookings.id", index=True)
@@ -103,6 +110,9 @@ class ChargingSession(SQLModel, table=True):
 
 class Payment(SQLModel, table=True):
     __tablename__ = "payments"
+    __table_args__ = (
+        Index("idx_payments_user_created", "user_id", "created_at"),
+    )
 
     id: Optional[int] = Field(default=None, primary_key=True)
     user_id: int = Field(foreign_key="users.id", index=True)
